@@ -10,10 +10,16 @@
     <version>1.0-SNAPSHOT</version>
 
     <modules>
+        <module>common-lib</module>
         <module>catalog</module>
         <module>search</module>
-        <module>common-lib</module>
     </modules>
+
+    <properties>
+        <common-lib-version>1.0-SNAPSHOT</common-lib-version>
+        <catalog-version>1.0-SNAPSHOT</catalog-version>
+        <search-version>1.0-SNAPSHOT</search-version>
+    </properties>
 
     <parent>
         <groupId>org.springframework.boot</groupId>

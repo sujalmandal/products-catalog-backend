@@ -1,0 +1,7 @@
+logging:
+  level:
+    ROOT: ERROR
+    org.springframework: INFO
+    s.m.learn.product : DEBUG
+
+

@@ -7,10 +7,10 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackageClasses = ProductCatalogAppConfig.class)
 public class ProductCatalogApp implements ApplicationRunner {
 
-    private Logger LOG = LoggerFactory.getLogger(ProductCatalogApp.class);
+    private final Logger LOG = LoggerFactory.getLogger(ProductCatalogApp.class);
 
     public static void main(String[] args) {
         SpringApplication.run(ProductCatalogApp.class, args);
@@ -18,6 +18,6 @@ public class ProductCatalogApp implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) {
-        LOG.info("Started s.m.k8demo.product.catalog.ProductCatalogApp with : {}",args.getOptionNames());
+        LOG.debug("### Started {} with : {}", this.getClass().getSimpleName(), args.getOptionNames());
     }
 }
