@@ -23,5 +23,11 @@
             <artifactId>common-lib</artifactId>
             <version>${common-lib-version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+        </dependency>
+
     </dependencies>
 </project>

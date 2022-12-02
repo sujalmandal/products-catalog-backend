@@ -4,4 +4,19 @@ logging:
     org.springframework: INFO
     s.m.learn.product : DEBUG
 
-
+## datasource config for dev
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: root
+    url: jdbc:postgres://postgres:postgrespw@localhost:5432
+    platform: postgres
+    initialization-mode: always
+    continue-on-error: true
+  jpa:
+    show-sql: true
+    generate-ddl: true
+    hibernate:
+      ddl-auto: create
+    database: postgresql
