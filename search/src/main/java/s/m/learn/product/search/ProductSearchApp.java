@@ -1,4 +1,4 @@
-package s.m.k8demo.product.search;
+package s.m.learn.product.search;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

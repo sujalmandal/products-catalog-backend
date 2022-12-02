@@ -1,6 +1,6 @@
-package s.m.learn.k8.products.entity;
+package s.m.learn.product.products.entity;
 
-import s.m.learn.k8.products.entity.common.AbstractEntity;
+import s.m.learn.product.products.entity.common.AbstractEntity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

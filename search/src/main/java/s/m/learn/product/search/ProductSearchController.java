@@ -1,8 +1,10 @@
-package s.m.k8demo.product.catalog;
+package s.m.learn.product.search;
 
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class ProductCatalogController {
+public class ProductSearchController {
+
+    
 
 }

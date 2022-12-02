@@ -1,6 +1,6 @@
-package s.m.learn.k8.products.entity.common;
+package s.m.learn.product.products.entity.common;
 
-import s.m.learn.k8.products.entity.common.listener.EntityAuditor;
+import s.m.learn.product.products.entity.common.listener.EntityAuditor;
 
 import javax.persistence.*;
 import java.util.Objects;
