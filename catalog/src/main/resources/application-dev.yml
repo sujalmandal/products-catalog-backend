@@ -10,7 +10,7 @@ spring:
     driver-class-name: org.postgresql.Driver
     username: postgres
     password: root
-    url: jdbc:postgres://postgres:postgrespw@localhost:5432
+    url: jdbc:postgresql://localhost:5432/postgres
     platform: postgres
     initialization-mode: always
     continue-on-error: true

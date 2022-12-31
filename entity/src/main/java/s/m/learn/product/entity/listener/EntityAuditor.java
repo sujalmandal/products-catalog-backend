@@ -1,7 +1,7 @@
-package s.m.learn.product.lib.entity.listener;
+package s.m.learn.product.entity.listener;
 
 
-import s.m.learn.product.lib.entity.common.AbstractEntity;
+import s.m.learn.product.entity.common.AbstractEntity;
 
 import javax.persistence.*;
 

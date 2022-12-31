@@ -6,8 +6,12 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
+import s.m.learn.product.catalog.config.ProductCatalogAppConfig;
 
-@SpringBootApplication(scanBasePackageClasses = ProductCatalogAppConfig.class)
+@SpringBootApplication
+@Import(ProductCatalogAppConfig.class)
 public class ProductCatalogApp implements ApplicationRunner {
 
     private final Logger LOG = LoggerFactory.getLogger(ProductCatalogApp.class);
