@@ -19,6 +19,8 @@
         <common-lib-version>1.0-SNAPSHOT</common-lib-version>
         <catalog-version>1.0-SNAPSHOT</catalog-version>
         <search-version>1.0-SNAPSHOT</search-version>
+        <maven.compiler.target>17</maven.compiler.target>
+        <maven.compiler.source>17</maven.compiler.source>
     </properties>
 
     <parent>
