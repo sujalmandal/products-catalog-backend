@@ -6,9 +6,11 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import s.m.learn.product.catalog.config.ProductCatalogAppConfig;
+import s.m.learn.product.catalog.util.TimeZoneUtil;
+
+import java.util.TimeZone;
 
 @SpringBootApplication
 @Import(ProductCatalogAppConfig.class)
@@ -23,5 +25,6 @@ public class ProductCatalogApp implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) {
         LOG.debug("### Started {} with : {}", this.getClass().getSimpleName(), args.getOptionNames());
+        TimeZoneUtil.setDefaultTimeZone();
     }
 }

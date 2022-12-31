@@ -20,7 +20,7 @@
 
         <dependency>
             <groupId>learn.products</groupId>
-            <artifactId>common-lib</artifactId>
+            <artifactId>entity</artifactId>
             <version>${common-lib-version}</version>
         </dependency>
 
@@ -28,6 +28,5 @@
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
         </dependency>
-
     </dependencies>
 </project>
