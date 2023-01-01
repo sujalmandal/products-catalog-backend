@@ -1,5 +1,14 @@
+server:
+  port : 8080
+
 spring:
   profiles:
     active: "dev"
   main:
     banner-mode: "off"
+
+product:
+  search:
+    base-url: http://localhost:8081
+    api:
+      update-index: search/update-index
