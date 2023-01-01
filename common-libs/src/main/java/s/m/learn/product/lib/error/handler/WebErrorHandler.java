@@ -1,6 +1,7 @@
-package s.m.learn.product.common.lib.error.handler;
+package s.m.learn.product.lib.error.handler;
 
-import s.m.learn.product.common.lib.model.GenericResponse;
+import org.springframework.web.bind.annotation.ResponseBody;
+import s.m.learn.product.lib.model.GenericResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -10,23 +11,28 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
-import static s.m.learn.product.common.lib.model.GenericResponse.Status.FAILURE;
+import static s.m.learn.product.lib.model.GenericResponse.Status.FAILURE;
 
 @ControllerAdvice
 public class WebErrorHandler {
     private static final Logger LOG = LoggerFactory.getLogger(WebErrorHandler.class);
 
-    @ExceptionHandler(MethodArgumentNotValidException.class)
+
+    @ResponseBody
     @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(MethodArgumentNotValidException.class)
     public GenericResponse<Map<String, String>> convertValidationErrorToFailedResponse(
             final MethodArgumentNotValidException exception, final HttpServletRequest request){
         LOG.info("converting {} to Generic error response..", exception.getClass());
-        return GenericResponse.create(Map.of(
-                Optional.ofNullable(exception.getParameter().getParameterName()).orElse("undefined"),exception.getMessage()))
-                .setStatus(FAILURE).setMessage(exception.getMessage());
+        Map<String, String> resObj = new HashMap<>();
+        if (exception.getErrorCount() > 0) {
+            exception.getBindingResult().getFieldErrors().forEach(fieldError -> {
+                resObj.put(fieldError.getField(), fieldError.getDefaultMessage());
+            });
+        }
+        return GenericResponse.create(resObj).setStatus(FAILURE).setMessage("Bad request : input validation failed.");
     }
 
 }

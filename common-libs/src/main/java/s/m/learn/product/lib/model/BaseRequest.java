@@ -1,4 +1,4 @@
-package s.m.learn.product.common.lib.model;
+package s.m.learn.product.lib.model;
 
 public abstract class BaseRequest {
 

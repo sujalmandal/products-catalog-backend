@@ -1,4 +1,4 @@
-package s.m.learn.product.common.lib.model;
+package s.m.learn.product.lib.model;
 
 public class GenericResponse<T> {
 
@@ -7,11 +7,9 @@ public class GenericResponse<T> {
     private T data;
 
     public static <T> GenericResponse<T> create(T data){
-        return new GenericResponse<>();
-    }
-
-    public static <T> GenericResponse<T> create(){
-        return new GenericResponse<>();
+        GenericResponse<T> response = new GenericResponse<>();
+        response.setData(data);
+        return response;
     }
 
     public Status getStatus() {

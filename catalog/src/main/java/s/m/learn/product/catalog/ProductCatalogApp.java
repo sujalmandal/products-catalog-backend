@@ -10,7 +10,6 @@ import org.springframework.context.annotation.Import;
 import s.m.learn.product.catalog.config.ProductCatalogAppConfig;
 import s.m.learn.product.catalog.util.TimeZoneUtil;
 
-import java.util.TimeZone;
 
 @SpringBootApplication
 @Import(ProductCatalogAppConfig.class)

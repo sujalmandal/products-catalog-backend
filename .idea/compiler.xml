@@ -6,8 +6,9 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="catalog" />
         <module name="search" />
+        <module name="common-libs" />
+        <module name="catalog" />
         <module name="entity" />
       </profile>
     </annotationProcessing>
@@ -15,6 +16,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="catalog" options="-parameters" />
+      <module name="common-libs" options="-parameters" />
       <module name="entity" options="-parameters" />
       <module name="search" options="-parameters" />
     </option>
