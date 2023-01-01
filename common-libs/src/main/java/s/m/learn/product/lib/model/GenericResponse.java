@@ -1,10 +1,14 @@
-package s.m.learn.product.catalog.dto.common;
+package s.m.learn.product.common.lib.model;
 
 public class GenericResponse<T> {
 
     private Status status;
     private String message;
     private T data;
+
+    public static <T> GenericResponse<T> create(T data){
+        return new GenericResponse<>();
+    }
 
     public static <T> GenericResponse<T> create(){
         return new GenericResponse<>();
