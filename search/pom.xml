@@ -19,10 +19,13 @@
 
 
     <dependencies>
+
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+            <groupId>learn.products</groupId>
+            <artifactId>common-libs</artifactId>
+            <version>${common-lib-version}</version>
         </dependency>
+
     </dependencies>
 
 </project>

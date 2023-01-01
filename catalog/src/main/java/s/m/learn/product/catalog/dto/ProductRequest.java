@@ -32,4 +32,14 @@ public class ProductRequest extends BaseRequest {
     public String getMetadata() {
         return metadata;
     }
+
+    @Override
+    public String toString() {
+        return "ProductRequest{" +
+                "name='" + name + '\'' +
+                ", sku='" + sku + '\'' +
+                ", countryOfOrigin='" + countryOfOrigin + '\'' +
+                ", metadata='" + metadata + '\'' +
+                '}';
+    }
 }
