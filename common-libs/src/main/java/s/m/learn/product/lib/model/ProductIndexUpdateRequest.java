@@ -1,12 +1,14 @@
 package s.m.learn.product.lib.model;
 
+import s.m.learn.product.lib.util.JsonUtil;
+
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 public class ProductIndexUpdateRequest {
 
     @NotNull(message = "Cannot be null!")
-    private Integer productId;
+    private Long productId;
 
     @NotEmpty(message = "Cannot be empty!")
     private String name;
@@ -21,11 +23,11 @@ public class ProductIndexUpdateRequest {
         return new ProductIndexUpdateRequest();
     }
 
-    public Integer getProductId() {
+    public Long getProductId() {
         return productId;
     }
 
-    public ProductIndexUpdateRequest setProductId(Integer productId) {
+    public ProductIndexUpdateRequest setProductId(Long productId) {
         this.productId = productId;
         return this;
     }
@@ -65,5 +67,10 @@ public class ProductIndexUpdateRequest {
         Operation(String op){
             this.operation = op;
         }
+    }
+
+    @Override
+    public String toString() {
+        return JsonUtil.toJson(this);
     }
 }

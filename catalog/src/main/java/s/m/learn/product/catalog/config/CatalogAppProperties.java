@@ -3,6 +3,7 @@ package s.m.learn.product.catalog.config;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
+import s.m.learn.product.lib.util.JsonUtil;
 
 @Component
 @PropertySource("classpath:application.yml")
@@ -14,7 +15,6 @@ public class CatalogAppProperties {
     @Value("${product.search.api.update-index}")
     private String updateIndexEndpoint;
 
-
     public String getSearchBaseUrl() {
         return searchBaseUrl;
     }
@@ -25,9 +25,6 @@ public class CatalogAppProperties {
 
     @Override
     public String toString() {
-        return "CatalogAppProperties{" +
-                "searchBaseUrl='" + searchBaseUrl + '\'' +
-                ", updateIndexEndpoint='" + updateIndexEndpoint + '\'' +
-                '}';
+        return JsonUtil.toJson(this);
     }
 }

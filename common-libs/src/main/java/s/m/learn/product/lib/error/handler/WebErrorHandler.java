@@ -19,7 +19,14 @@ import static s.m.learn.product.lib.model.GenericResponse.Status.FAILURE;
 public class WebErrorHandler {
     private static final Logger LOG = LoggerFactory.getLogger(WebErrorHandler.class);
 
-
+    /**
+     * convert exceptions thrown due to constraints violation due to @Valid annotation in the methods
+     *
+     * @param exception
+     * @param request
+     *
+     * @return GenericResponse
+     */
     @ResponseBody
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(MethodArgumentNotValidException.class)

@@ -1,4 +1,4 @@
-package s.m.learn.product.catalog.util;
+package s.m.learn.product.lib.util;
 
 import java.util.TimeZone;
 

@@ -12,7 +12,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Import;
 import s.m.learn.product.catalog.config.CatalogAppProperties;
 import s.m.learn.product.catalog.config.ProductCatalogAppConfig;
-import s.m.learn.product.catalog.util.TimeZoneUtil;
+import s.m.learn.product.lib.util.TimeZoneUtil;
 
 
 @SpringBootApplication

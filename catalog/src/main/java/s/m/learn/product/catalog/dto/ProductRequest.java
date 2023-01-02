@@ -1,6 +1,7 @@
 package s.m.learn.product.catalog.dto;
 
 import s.m.learn.product.lib.model.BaseRequest;
+import s.m.learn.product.lib.util.JsonUtil;
 
 import javax.validation.constraints.NotEmpty;
 
@@ -35,11 +36,6 @@ public class ProductRequest extends BaseRequest {
 
     @Override
     public String toString() {
-        return "ProductRequest{" +
-                "name='" + name + '\'' +
-                ", sku='" + sku + '\'' +
-                ", countryOfOrigin='" + countryOfOrigin + '\'' +
-                ", metadata='" + metadata + '\'' +
-                '}';
+        return JsonUtil.toJson(this);
     }
 }

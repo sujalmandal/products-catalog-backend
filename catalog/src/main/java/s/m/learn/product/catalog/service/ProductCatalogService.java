@@ -34,6 +34,8 @@ public class ProductCatalogService {
         LOG.info("addProduct() triggered : {}", request);
 
         final Product persistedProduct = productRepository.save(productHelper.prepareProductEntity(request));
+        //API call to product search service to update elastic search indexes
+        productHelper.updateIndex(persistedProduct);
         return GenericResponse.create(Map.of(
                 PRODUCT_ID, persistedProduct.getId())).setMessage("Product created.").setStatus(SUCCESS);
     }

@@ -11,4 +11,4 @@ product:
   search:
     base-url: http://localhost:8081
     api:
-      update-index: search/update-index
+      update-index: /search/update-index
