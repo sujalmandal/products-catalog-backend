@@ -21,7 +21,6 @@ public class ProductHelper {
     @Async("asyncTask")
     public void updateIndex(final Product product){
         this.productSearchClient.updateSearchIndex(prepareProductSearchIndexRequest(product));
-        if(true) throw ApplicationException.create();
     }
 
     public ProductIndexUpdateRequest prepareProductSearchIndexRequest(final Product product) {
