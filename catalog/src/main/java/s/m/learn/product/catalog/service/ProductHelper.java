@@ -3,10 +3,9 @@ package s.m.learn.product.catalog.service;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 import s.m.learn.product.builders.ProducerBuilder;
-import s.m.learn.product.catalog.client.ProductSearchClient;
+import s.m.learn.product.catalog.client.search.ProductSearchClient;
 import s.m.learn.product.catalog.dto.ProductRequest;
 import s.m.learn.product.entity.Product;
-import s.m.learn.product.lib.error.handler.ApplicationException;
 import s.m.learn.product.lib.model.ProductIndexUpdateRequest;
 
 @Component
