@@ -22,6 +22,7 @@
         <catalog-version>1.0-SNAPSHOT</catalog-version>
         <search-version>1.0-SNAPSHOT</search-version>
         <release.train.version>2020.0.6</release.train.version>
+        <solace-spring-cloud-version>3.4.0</solace-spring-cloud-version>
     </properties>
 
     <parent>
@@ -43,32 +44,6 @@
             </plugin>
         </plugins>
     </build>
-
-    <repositories>
-        <repository>
-            <id>sujaldev-main-repo</id>
-            <url>https://dl.cloudsmith.io/public/sujaldev/main-repo/maven/</url>
-            <releases>
-                <enabled>true</enabled>
-                <updatePolicy>always</updatePolicy>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-                <updatePolicy>always</updatePolicy>
-            </snapshots>
-        </repository>
-    </repositories>
-
-    <distributionManagement>
-        <snapshotRepository>
-            <id>cloudsmith</id>
-            <url>https://maven.cloudsmith.io/sujaldev/main-repo/</url>
-        </snapshotRepository>
-        <repository>
-            <id>cloudsmith</id>
-            <url>https://maven.cloudsmith.io/sujaldev/main-repo/</url>
-        </repository>
-    </distributionManagement>
 
     <dependencies>
         <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test -->

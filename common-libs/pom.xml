@@ -21,6 +21,14 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.solace.spring.cloud/spring-cloud-starter-stream-solace -->
+        <dependency>
+            <groupId>com.solace.spring.cloud</groupId>
+            <artifactId>spring-cloud-starter-stream-solace</artifactId>
+            <version>${solace-spring-cloud-version}</version>
+        </dependency>
+
     </dependencies>
 
 </project>
