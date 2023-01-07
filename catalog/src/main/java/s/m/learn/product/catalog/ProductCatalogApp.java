@@ -5,14 +5,19 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.annotation.Import;
 import s.m.learn.product.catalog.config.CatalogAppProperties;
 import s.m.learn.product.catalog.config.ProductCatalogAppConfig;
+import s.m.learn.product.lib.common.YamlFileApplicationContextInitializer;
 import s.m.learn.product.lib.util.TimeZoneUtil;
+
+import java.util.Map;
 
 
 @SpringBootApplication
@@ -33,7 +38,9 @@ public class ProductCatalogApp implements ApplicationRunner {
     }
 
     public static void main(String[] args) {
-        SpringApplication.run(ProductCatalogApp.class, args);
+        new SpringApplicationBuilder(ProductCatalogApp.class)
+                .initializers(YamlFileApplicationContextInitializer.create(
+                        Map.of("messaging-config", "messaging.yml"))).run(args);
     }
 
     @Override

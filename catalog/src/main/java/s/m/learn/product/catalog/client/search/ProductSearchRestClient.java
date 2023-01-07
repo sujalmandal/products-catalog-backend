@@ -7,7 +7,7 @@ import s.m.learn.product.catalog.config.CatalogAppProperties;
 import s.m.learn.product.lib.model.GenericResponse;
 import s.m.learn.product.lib.model.ProductIndexUpdateRequest;
 
-@Primary
+//@Primary
 @Component
 public class ProductSearchRestClient implements ProductSearchClient {
 
