@@ -1,0 +1,33 @@
+spring:
+  cloud:
+    function:
+      definition: productConsumer
+    stream:
+      bindings:
+        productConsumer-in-0:
+          destination: PRODUCT.CONSUMER.Q
+          binder: local-solace
+          group: nonexclusive
+      solace:
+        bindings:
+          productConsumer-in-0:
+            consumer:
+              provisionSubscriptionsToDurableQueue: true
+              provisionDurableQueue: true
+              queueNamePrefix: ""
+              useFamiliarityInQueueName: false
+              useDestinationEncodingInQueueName: false
+              useGroupNameInQueueName: false
+              queueAdditionalSubscriptions: product/index/update
+      binders:
+        local-solace:
+          type: solace
+          environment:
+            solace:
+              java:
+                host: tcp://localhost:55555
+                msgVpn: default
+                clientUsername: default
+                clientPassword: default
+                connectRetries: -1
+                reconnectRetries: -1

@@ -7,8 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestTemplate;
 import s.m.learn.product.catalog.config.CatalogAppProperties;
-
-import static s.m.learn.product.catalog.client.search.ProductSearchMessagingClient.PRODUCT_MSG_CLIENT_DESTINATION_NAME;
+import s.m.learn.product.lib.common.CommonConstant;
 
 @Configuration
 public class ProductClientConfig {
@@ -22,9 +21,9 @@ public class ProductClientConfig {
         return new ProductSearchRestClient(restTemplate, catalogAppProperties);
     }
 
-    @Bean(PRODUCT_MSG_CLIENT_DESTINATION_NAME)
+    @Bean
     @ConditionalOnProperty(name = "products.clients.type", havingValue = "MESSAGING")
-    public ProductSearchClient productMessagingClient(final CatalogAppProperties catalogAppProperties){
+    public ProductSearchClient productProducer(final CatalogAppProperties catalogAppProperties){
         LOG.info("configuring product search messaging client..");
         return new ProductSearchMessagingClient(catalogAppProperties);
     }

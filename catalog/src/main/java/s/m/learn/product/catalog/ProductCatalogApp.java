@@ -42,9 +42,8 @@ public class ProductCatalogApp implements ApplicationRunner {
     }
 
     @Override
-    public void run(final ApplicationArguments args) throws JsonProcessingException {
-        LOG.debug("Started 'ProductCatalogApp' with configurations : {}",
-                objectMapper.writeValueAsString(this.catalogAppProperties));
+    public void run(final ApplicationArguments args) {
+        LOG.info("{} with : {}",this.getClass().getSimpleName(), args.getOptionNames());
         TimeZoneUtil.setDefaultTimeZone();
     }
 }

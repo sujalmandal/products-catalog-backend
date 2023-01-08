@@ -14,9 +14,6 @@ import java.util.function.Supplier;
 
 public class ProductSearchMessagingClient implements ProductSearchClient, Supplier<ProductIndexUpdateRequest> {
 
-    //name of the topic to which this client will write. This has to be the name of the bean of the supplier
-    public static final String PRODUCT_MSG_CLIENT_DESTINATION_NAME = "product-search-client";
-
     private static final Logger LOG = LoggerFactory.getLogger(ProductSearchMessagingClient.class);
 
     private final CatalogAppProperties catalogAppProperties;

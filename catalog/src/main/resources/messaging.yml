@@ -1,12 +1,12 @@
 spring:
   cloud:
     function:
-      definition: product-search-client
+      definition: productProducer
     stream:
       poller:
         fixed-delay: 5000
       bindings:
-        product-search-client-out-0:
+        productProducer-out-0:
           destination: product/index/update
           binder: local-solace
       binders:

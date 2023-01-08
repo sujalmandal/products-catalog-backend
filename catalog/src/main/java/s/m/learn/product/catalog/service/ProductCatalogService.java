@@ -12,7 +12,7 @@ import s.m.learn.product.repo.ProductRepository;
 import java.util.List;
 import java.util.Map;
 
-import static s.m.learn.product.catalog.constant.CommonConstant.PRODUCT_ID;
+import static s.m.learn.product.lib.common.CommonConstant.PRODUCT_ID;
 import static s.m.learn.product.lib.model.GenericResponse.Status.SUCCESS;
 
 @Service
