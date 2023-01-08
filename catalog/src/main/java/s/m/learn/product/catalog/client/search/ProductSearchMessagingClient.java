@@ -1,29 +1,56 @@
 package s.m.learn.product.catalog.client.search;
 
-import org.springframework.cloud.stream.function.StreamBridge;
-import org.springframework.context.annotation.Primary;
-import org.springframework.stereotype.Component;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import s.m.learn.product.catalog.config.CatalogAppProperties;
+import s.m.learn.product.lib.error.code.ErrorCode;
+import s.m.learn.product.lib.error.handler.ApplicationException;
 import s.m.learn.product.lib.model.GenericResponse;
 import s.m.learn.product.lib.model.ProductIndexUpdateRequest;
 
-@Primary
-@Component
-public class ProductSearchMessagingClient implements ProductSearchClient {
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.function.Supplier;
+
+public class ProductSearchMessagingClient implements ProductSearchClient, Supplier<ProductIndexUpdateRequest> {
+
+    //name of the topic to which this client will write. This has to be the name of the bean of the supplier
+    public static final String PRODUCT_MSG_CLIENT_DESTINATION_NAME = "product-search-client";
+
+    private static final Logger LOG = LoggerFactory.getLogger(ProductSearchMessagingClient.class);
 
     private final CatalogAppProperties catalogAppProperties;
-    private final StreamBridge streamBridge;
+    private BlockingQueue<ProductIndexUpdateRequest> queue = new LinkedBlockingQueue<>();
+    
 
-    public ProductSearchMessagingClient(final CatalogAppProperties catalogAppProperties, StreamBridge streamBridge) {
+    public ProductSearchMessagingClient(final CatalogAppProperties catalogAppProperties) {
         this.catalogAppProperties = catalogAppProperties;
-        this.streamBridge = streamBridge;
     }
 
     @Override
     public GenericResponse<?> updateSearchIndex(final ProductIndexUpdateRequest request){
-        streamBridge.send("product-index", request);
+        try{
+            queue.put(request);
+        } catch (Exception e){
+            throw ApplicationException.create(e).setErrorCode(ErrorCode.MESSAGE_PUBLISH_FAILED);
+        }
         return GenericResponse.create(request)
                 .setStatus(GenericResponse.Status.SUCCESS).setMessage("Published in queue.");
     }
 
+    @Override
+    public ProductSearchClient.ClientType getType() {
+        return ClientType.MESSAGING;
+    }
+
+    @Override
+    public ProductIndexUpdateRequest get() {
+        LOG.info("pushing to message broker..");
+        try {
+            return queue.take();
+        } catch (InterruptedException e) {
+            throw ApplicationException.create(e)
+                    .setErrorCode(ErrorCode.MESSAGE_PUBLISH_FAILED);
+        }
+    }
 }

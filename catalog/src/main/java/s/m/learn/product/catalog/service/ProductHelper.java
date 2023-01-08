@@ -11,15 +11,15 @@ import s.m.learn.product.lib.model.ProductIndexUpdateRequest;
 @Component
 public class ProductHelper {
 
-    private final ProductSearchClient productSearchClient;
+    private final ProductSearchClient client;
 
-    public ProductHelper(final ProductSearchClient productSearchClient) {
-        this.productSearchClient = productSearchClient;
+    public ProductHelper(final ProductSearchClient client) {
+        this.client= client;
     }
 
     @Async("asyncTask")
     public void updateIndex(final Product product){
-        this.productSearchClient.updateSearchIndex(prepareProductSearchIndexRequest(product));
+        client.updateSearchIndex(prepareProductSearchIndexRequest(product));
     }
 
     public ProductIndexUpdateRequest prepareProductSearchIndexRequest(final Product product) {

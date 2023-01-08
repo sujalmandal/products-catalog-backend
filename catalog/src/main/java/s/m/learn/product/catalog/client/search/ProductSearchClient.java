@@ -5,4 +5,9 @@ import s.m.learn.product.lib.model.ProductIndexUpdateRequest;
 
 public interface ProductSearchClient {
     GenericResponse<?> updateSearchIndex(final ProductIndexUpdateRequest request);
+    ClientType getType();
+
+    enum ClientType{
+        REST, MESSAGING
+    }
 }

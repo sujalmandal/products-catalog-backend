@@ -1,2 +1,23 @@
-custom:
-  prop: sujal
+spring:
+  cloud:
+    function:
+      definition: product-search-client
+    stream:
+      poller:
+        fixed-delay: 5000
+      bindings:
+        product-search-client-out-0:
+          destination: product/index/update
+          binder: local-solace
+      binders:
+        local-solace:
+          type: solace
+          environment:
+            solace:
+              java:
+                host: tcp://localhost:55555
+                msgVpn: default
+                clientUsername: default
+                clientPassword: default
+                connectRetries: -1
+                reconnectRetries: -1

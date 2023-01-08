@@ -18,7 +18,7 @@
       <module name="catalog" options="-parameters" />
       <module name="common-libs" options="-parameters" />
       <module name="entity" options="-parameters" />
-      <module name="products-catalog-backend" options="-parameters" />
+      <module name="products-catalog-backend" options="" />
       <module name="search" options="-parameters" />
     </option>
   </component>

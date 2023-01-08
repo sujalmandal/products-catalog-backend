@@ -24,3 +24,6 @@ spring:
       ddl-auto: create
     database: postgresql
 
+products:
+  clients:
+    type: MESSAGING
