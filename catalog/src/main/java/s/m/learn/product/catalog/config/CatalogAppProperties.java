@@ -5,6 +5,7 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 import s.m.learn.product.lib.util.JsonUtil;
 
+//TODO : use @ConfigurationProperties("prefix") & remove @Value
 @Component
 @PropertySource("classpath:application.yml")
 public class CatalogAppProperties {
